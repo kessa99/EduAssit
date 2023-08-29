@@ -1,0 +1,52 @@
+ .about {
+     background-image: url('../images/background.svg');
+ }
+ 
+ .about-more {
+     font-size: 30px;
+     text-align: center;
+     margin: 50px 50px;
+ }
+ 
+ .about-more span {
+     color: red;
+ }
+ 
+ .flex-container {
+     width: 100%;
+     height: auto;
+     display: flex;
+     flex-direction: line;
+     flex-wrap: wrap;
+     justify-content: center;
+ }
+ 
+ .flex-box {
+     width: 200px;
+     height: 200px;
+     background: linear-gradient(purple, red);
+     color: white;
+     font-size: 25px;
+     text-align: center;
+     border-radius: 20px;
+     margin: 10px;
+ }
+ 
+ .service-book {
+     width: 100px;
+     height: auto;
+     display: flex;
+     flex-direction: row;
+     flex-wrap: wrap;
+ }
+ 
+ .books {
+     width: 200px;
+     height: 200px;
+     background: linear-gradient(purple, red);
+     color: white;
+     font-size: 25px;
+     text-align: center;
+     border-radius: 20px;
+     margin: 10px;
+ }

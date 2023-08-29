@@ -1,0 +1,23 @@
+.plus-services {
+    font-size: 40px;
+}
+
+.info {
+    display: flex;
+    justify-content: space-around;
+    font-size: 15px;
+    margin: 50px;
+}
+
+.more-info {
+    align-items: center;
+    justify-content: center;
+}
+
+.more-info img {
+    width: 250px;
+}
+
+.more-info p {
+    align-items: center;
+}

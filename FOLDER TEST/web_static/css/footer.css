@@ -1,0 +1,149 @@
+/* Footer Bar */
+
+footer {
+    position: relative;
+    background-image: url('../images/physics.svg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+footer::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 100px;
+    height: 1px;
+    width: 100%;
+    background: #040411;
+}
+
+footer .footer-content {
+    max-width: 1100px;
+    margin: auto;
+    padding: 30px 40px 40px 40px;
+}
+
+footer .footer-content .top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+
+.footer-content .top .logo-details {
+    color: #000000;
+    font-size: 30px;
+}
+
+footer .footer-content .link-boxes {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+footer .footer-content .link-boxes .box {
+    width: calc(100% / 3 - 10px);
+}
+
+.footer-content .link-boxes .box .link_name {
+    color: #000000;
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.link-boxes .box .link_name::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    height: 2px;
+    width: 35px;
+    background: #010101;
+}
+
+.footer-content .link-boxes .box li {
+    margin: 6px 0;
+    list-style: none;
+}
+
+.footer-content .link-boxes .box li a {
+    color: #000000;
+    font-size: 19px;
+    font-weight: 400;
+    text-decoration: none;
+    opacity: 0.8;
+    transition: all 0.4s ease;
+}
+
+.footer-content .link-boxes .box li a:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+.footer-content .link-boxes .input-box {
+    margin-right: 55px;
+}
+
+.link-boxes .input-box input {
+    height: 40px;
+    width: calc(100% + 55px);
+    outline: none;
+    border: 2px solid #3434a5;
+    background: #3128d4;
+    border-radius: 4px;
+    padding: 0 15px;
+    font-size: 15px;
+    margin-top: 5px;
+}
+
+.input-box input::placeholder {
+    color: #afafb6;
+    font-size: 16px;
+}
+
+.input-box input[type="button"] {
+    background: #fff;
+    color: #1f1c34;
+    font-size: 18px;
+    font-weight: 500;
+    margin: 4px 0;
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+.input-box input[type="button"]:hover {
+    opacity: 1;
+}
+
+footer .bottom-details {
+    width: 100%;
+    background: #230cd1;
+}
+
+footer .bottom-details .bottom_text {
+    max-width: 1250px;
+    margin: auto;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.bottom-details .bottom_text span,
+.bottom-details .bottom_text a {
+    font-size: 14px;
+    font-weight: 300;
+    color: #fff;
+    opacity: 0.8;
+    text-decoration: none;
+}
+
+.bottom-details .bottom_text a:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+
+.bottom-details .bottom_text a {
+    margin-right: 10px;
+}
