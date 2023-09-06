@@ -4,10 +4,6 @@ html {
     scroll-behavior: smooth;
 }
 
-.all_content {
-    background-image: url('../img/background.svg');
-}
-
 .featured_boks {
     width: 100%;
     height: 100vh;

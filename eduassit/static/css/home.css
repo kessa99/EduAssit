@@ -20,9 +20,6 @@
 
 .home {
     padding-top: 8rem;
-    background-image: url('../img/background.svg');
-    background-size: cover;
-    background-position: center;
     position: relative;
 }
 
@@ -88,14 +85,6 @@
 
 
 /* section2 */
-
-.about {
-    padding-top: 8rem;
-    background-image: url('../img/background.svg');
-    background-size: cover;
-    background-position: center;
-    position: relative;
-}
 
 .about-more {
     font-size: 30px;

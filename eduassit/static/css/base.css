@@ -4,11 +4,13 @@
         scroll-behavior: smooth;
     }
     
-    .con {
+    body {
         background-image: url('../img/background.svg');
+        background-size: cover;
+        background-position: center;
     }
     /*
-* **** MODIFICATION AU NIVEAU DE LA BARRE DE NAVIGATION ELLE MEME ****
+     **** MODIFICATION AU NIVEAU DE LA BARRE DE NAVIGATION ELLE MEME ****
 */
     
     nav {
@@ -154,7 +156,7 @@ Modification des bouton de connexion
 */
     /*DEBUT DE LA PARTIE RESPONSIVE*/
     
-    @media (max-width: 978px) {
+    @media (max-width: 392px) {
         nav {
             padding: 15px 20px;
             position: fixed;
@@ -252,7 +254,7 @@ Modification des bouton de connexion
         }
     }
     
-    @media (max-width: 500px) {
+    @media (max-width: 392px) {
         .nav-icon img {
             width: 30px;
         }
