@@ -1,15 +1,26 @@
-{% extends "base.html" %} {% block title %} Sign Up {% endblock %} {% block css %}{% endblock %}{% block js %}{% endblock %} {% block content %}
+{% extends "base.html" %} {% block title %} Login {% endblock %} {% block css %}{% endblock %}{% block js %}{% endblock %} {% block content %}
 <div class="home">
     <div class="wrapper">
+        {% with messages = get_flashed_messages(with_categories=true) %} {% if messages %} {% for category, message in messages %}{% if category == "error" %}
+        <div class="alert" role="alert">
+            {{ message }}
+        </div>
+        {%else%}
+        <div class="alert" role="alert">
+            {{ message }}
+            <button type="button"></button>
+        </div>
+        {% endif %} {% endfor %} {% endif %} {% endwith %}
         <h1>Login</h1>
-        <form action="#">
+        <form method="POST">
             <input type="text" name="Username" placeholder="Username">
             <input type="password" name="password1" placeholder="Password">
             <div class="recover ">
                 <a href="# ">Forgot password?</a>
             </div>
+            <button class="connect">Login</button>
         </form>
-        <button class="connect">Login</button>
+
         <div class="member ">
             Not a member?
             <a href="./residu.html ">Register Here</a>

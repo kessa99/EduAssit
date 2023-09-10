@@ -1,0 +1,34 @@
+{% extends "base.html" %} {% block title %} Community {% endblock %} {% block css %} {% endblock %} {% block js %} {% endblock %} {% block content %}
+<div class="home">
+    <div class="community">
+        {% with messages = get_flashed_messages(with_categories=true) %} {% if messages %} {% for category, message in messages %}
+        <div class="alert" role="alert">
+            {{ message }}
+            <button type="button"></button>
+        </div>
+        {% endfor %} {% endif %} {% endwith %}
+        <h1>Community</h1>
+
+        <br /> {% for post in posts %}
+        <div class="post">
+            [{{ post.user.date_created }}] {{ post.user.username }}: {{ post.text }} {% if current_user.is_authenticated and post.user.id == current_user.id %}
+            <form method="POST" action="{{ url_for('views.delete_post', post_id=post.id) }}">
+                <div class="choose">
+                    <button type="submit" class="btn">Delete</button>
+                </div>
+            </form>
+            {% endif %}
+        </div>
+        {% endfor %}
+
+        <!-- Formulaire pour écrire un nouveau message -->
+        <form method="POST" action="{{ url_for('views.community') }}">
+            <textarea name="text" class="input-field textarea-field" placeholder="Your message"></textarea>
+            <div class="choose">
+                <button type="submit" class="btn">Send</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

@@ -24,7 +24,7 @@ form input {
     background: #e4e4e4;
 }
 
-button .connect {
+.connect {
     font-size: 1rem;
     margin-top: 1.8rem;
     padding: 10px 0;

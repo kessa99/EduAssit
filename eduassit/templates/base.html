@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="../static/css/book.css">
     <link rel="stylesheet" href="../static/css/contact.css">
     <link rel="stylesheet" href="../static/css/residu.css">
+    <link rel="stylesheet" href="../static/css/community.css">
     <!-- <script src="{{ url_for('static', filename='animation-nav-bar.js') }}"></script> -->
 </head>
 
@@ -38,11 +39,17 @@
                     <span></span>
                 </button>
                 <div class="navlinks-container">
-                    <a href="/EduAssit/eduassit/templates/home.html" aria-current="page">Home</a>
-                    <a href="../templates/books.html">Books</a>
-                    <a href="/EduAssit/eduassit/templates/suject.html">subjects</a>
-                    <a href="#">Contact</a>
+                    {% if user.is_authenticated %}
+                    <a href="{{ url_for('views.home') }}" aria-current="page">Home</a>
+                    <a href="{{ url_for('views.book') }}">Books</a>
+                    <a href="{{ url_for('views.subject') }}">Subjects</a>
+                    <a href="{{ url_for('views.community') }}">Community</a>
+                    <a href="{{ url_for('views.contact') }}">Contact</a> {% else %}
+                    <a href="{{ url_for('views.home') }}" aria-current="page">Home</a>
+                    <a href="{{ url_for('views.book') }}">Books</a>
+                    <a href="{{ url_for('views.contact') }}">Contact</a> {% endif %}
                 </div>
+
             </div>
 
             <!--
@@ -54,14 +61,28 @@
                 <a href="/EduAssit/eduassit/templates/loginin.html" class="sign-user">
                     <img src="../static/img/userIcon.svg" alt="User Icon">
                 </a>
-                <div class="sign-btns">
+                <div class="sign-btns" out>
+                    {% if user.is_authenticated %}
+                    <button type="button">Logout </button> {% else %}
                     <button type="button">Log in</button>
-                    <button type="button">Sign in</button>
+                    <button type="button">Sign in</button>{% endif %}
+
                 </div>
             </div>
         </nav>
     </header>
-    {% block content %}{% endblock %}
+
+    {% with messages = get_flashed_messages(with_categories=true) %} {% if messages %} {% for category, message in messages %}{% if category == "error" %}
+    <div class="alert" role="alert">
+        {{ message }}
+    </div>
+    {% else %}
+    <div class="alert" role="alert">
+        {{ message }}
+        <button type="button"></button>
+    </div>
+    {% endif %} {% endfor %} {% endif %} {% endwith %} {% block content %} {% endblock %}
+
 
     <!-- Footer Section -->
     <footer class="contact">

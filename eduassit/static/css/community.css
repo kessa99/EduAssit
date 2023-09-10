@@ -1,0 +1,13 @@
+.community {
+    margin: 20% auto;
+    padding: 20px;
+}
+
+.community h1 {
+    margin: 0;
+    justify-content: center;
+}
+
+form {
+    margin: 100px;
+}

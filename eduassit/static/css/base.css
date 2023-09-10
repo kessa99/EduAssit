@@ -4,6 +4,10 @@
         scroll-behavior: smooth;
     }
     
+    .print {
+        margin: 200px;
+    }
+    
     body {
         background-image: url('../img/background.svg');
         background-size: cover;
