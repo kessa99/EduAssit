@@ -1,12 +1,12 @@
 from flask import Blueprint, render_template, request, flash, redirect, url_for
-from . import db
 from .model import User
 from flask_login import login_user, logout_user, login_required, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
+from . import db
 
 auth = Blueprint('auth', __name__)
 
-@auth.route("/login", methods = ['GET', 'POST'])
+@auth.route('/login/', strict_slashes=False, methods = ['GET', 'POST'])
 def login():
     if request.method == 'POST':
         username = request.form.get('Username')
@@ -25,10 +25,10 @@ def login():
     return render_template("login.html", user=current_user)
 
 
-@auth.route("/sign-up", methods = ['GET', 'POST'])
+@auth.route('/sign-up/', strict_slashes=False, methods = ['GET', 'POST'])
 def signup():
     if request.method == 'POST':
-        username = request.form.get('Username')
+        username = request.form.get('username')
         email = request.form.get('email')
         password1 = request.form.get('password1')
         password2 = request.form.get('password2')
@@ -50,7 +50,7 @@ def signup():
         elif len(password1) < 5:
             flash('Password must at least 5 characters', category='error')
         else:
-            new_user = User(email=email, username=username, password= generate_password_hash(password1, method="sha256"))
+            new_user = User(email=email, username=username, password=generate_password_hash(password1, method="sha256"))
             db.session.add(new_user)
             db.session.commit()
             login_user(new_user, remember="True")
@@ -59,8 +59,8 @@ def signup():
     return render_template("signup.html", user=current_user)
 
 
-@auth.route("/logout")
+@auth.route('/logout/', strict_slashes=False)
 @login_required
 def logout():
     logout_user()
-    return redirect(url_for("views.home"))
+    return redirect(url_for("auth.login"))

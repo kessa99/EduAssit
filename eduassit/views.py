@@ -5,28 +5,30 @@ from . import db
 
 views = Blueprint('views', __name__)
 
-@views.route('/')
-@views.route('/home')
-@login_required
+
+@views.route('/', strict_slashes=False)
+def index():
+    return redirect(url_for('views.home'))
+
+@views.route('/home', strict_slashes=False)
 def home():
     return render_template('home.html', user=current_user)
 
-
-
-@views.route('/subject')
+@views.route('/subject/', strict_slashes=False)
 @login_required
 def subject():
     return render_template('subject.html', user=current_user)
 
 
 
-@views.route('/book')
+@views.route('/book/', strict_slashes=False)
+@login_required
 def book():
-    return render_template('books.html', user=current_user)
+    return redirect(url_for('views.home'))
 
 
 
-@views.route('/community', methods=['GET', 'POST'])
+@views.route('/community/', strict_slashes=False, methods=['GET', 'POST'])
 @login_required
 def community():
     posts = Community.query.all()
@@ -57,6 +59,6 @@ def delete_post(post_id):
 
 
 
-@views.route('/contact')
+@views.route('/contact/', strict_slashes=False)
 def contact():
-    return render_template('contact.html')
+    return render_template('contact.html', user=current_user)

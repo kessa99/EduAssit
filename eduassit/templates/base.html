@@ -46,7 +46,6 @@
                     <a href="{{ url_for('views.community') }}">Community</a>
                     <a href="{{ url_for('views.contact') }}">Contact</a> {% else %}
                     <a href="{{ url_for('views.home') }}" aria-current="page">Home</a>
-                    <a href="{{ url_for('views.book') }}">Books</a>
                     <a href="{{ url_for('views.contact') }}">Contact</a> {% endif %}
                 </div>
 
@@ -58,14 +57,20 @@
             -->
 
             <div class="nav-authentication">
-                <a href="/EduAssit/eduassit/templates/loginin.html" class="sign-user">
+                <a href="{{ url_for('auth.login') }}" class="sign-user">
                     <img src="../static/img/userIcon.svg" alt="User Icon">
                 </a>
                 <div class="sign-btns" out>
                     {% if user.is_authenticated %}
-                    <button type="button">Logout </button> {% else %}
-                    <button type="button">Log in</button>
-                    <button type="button">Sign in</button>{% endif %}
+                    <button type="button"> 
+                        <a href="{{ url_for('auth.logout') }}"> Logout </a>
+                    </button> {% else %}
+                    <button type="button">
+                        <a href="{{ url_for('auth.login') }}"> Log In </a>
+                    </button>
+                    <button type="button">
+                        <a href="{{ url_for('auth.signup') }}"> Sign up </a>
+                    </button>{% endif %}
 
                 </div>
             </div>
